@@ -10,29 +10,32 @@ use MichaelBecker\SimpleFile\Models\File;
 class FileService
 {
     /**
-     * Store files for a given model.
+     * Store files for a given model that uses the HasFiles trait.
      *
      * @param array|null $newFiles
-     * @param Model|null $model
+     * @param \Illuminate\Database\Eloquent\Model $model Model with HasFiles trait
      * @param string|null $path
      * @return mixed
+     * @throws \Exception if $model does not implement getDisk or lacks id property.
      */
     public function storeFiles(
         ?array $newFiles,
         Model $model,
         ?string $path = null
     ) {
-        if (is_null($model)) {
-            throw new Exception(__('A model must be provided to associate files.'));
+        if (! method_exists($model, 'getDisk')) {
+            throw new \Exception("The provided model does not implement the required getDisk method.");
         }
+        $disk = $model->getDisk() ?? 'public';
+
+        if (! property_exists($model, 'id')) {
+            throw new \Exception("The provided model does not have an id property.");
+        }
+        $path = $path ?? $model->id ?? '';
 
         $files = [];
 
         if (!empty($newFiles)) {
-            // Determine the disk from the model or default to 'public'
-            $disk = $model?->getDisk() ?? 'public';
-            $path = $path ?? $model?->id ?? '';
-
             foreach ($newFiles as $newFile) {
                 // Check if the file already exists
                 if (!Storage::disk($disk)->exists($path . '/' . $newFile->getClientOriginalName())) {
@@ -44,8 +47,8 @@ class FileService
                         'path' => $path,
                         'name' => $newFile->getClientOriginalName(),
                         'uploaded_by' => auth()->id(),
-                        'fileable_id' => $model?->id,
-                        'fileable_type' => $model ? get_class($model) : null,
+                        'fileable_id' => $model->id,
+                        'fileable_type' => get_class($model),
                     ])->id;
                 } else {
                     // If file exists, retrieve its record

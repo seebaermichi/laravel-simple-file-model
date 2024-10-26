@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * @property string $name
+ * @property string $disk
+ * @property string $path
+ * @property int $fileable_id
+ * @property string $fileable_type
+ */
 class File extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;

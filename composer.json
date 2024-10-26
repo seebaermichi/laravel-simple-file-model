@@ -1,6 +1,6 @@
 {
     "name": "seebaermichi/laravel-simple-file-model",
-    "description": "This is a small package to allow to easy add file handling for several models in Laravel",
+    "description": "This is a small package to allow to add file handling for several models in Laravel",
     "keywords": [
         "MichaelBecker",
         "laravel",

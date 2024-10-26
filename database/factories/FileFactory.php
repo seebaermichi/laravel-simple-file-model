@@ -3,7 +3,6 @@
 namespace MichaelBecker\SimpleFile\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use MichaelBecker\SimpleFile\Models\File;
 
@@ -30,7 +29,7 @@ class FileFactory extends Factory
      * Define the `fileable` polymorphic relationship.
      * This state allows setting an arbitrary model as the `fileable`.
      *
-     * @param Model $fileable
+     * @param \Illuminate\Database\Eloquent\Model|object $fileable
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
     public function fileable($fileable)
