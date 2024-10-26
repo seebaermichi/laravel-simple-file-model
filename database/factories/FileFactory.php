@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use MichaelBecker\SimpleFile\Models\File;
 
-
 class FileFactory extends Factory
 {
     protected $model = File::class;
@@ -17,7 +16,7 @@ class FileFactory extends Factory
 
         return [
             'disk' => 'public',
-            'name' => $this->faker->name() . '.' . $this->faker->fileExtension(),
+            'name' => $this->faker->name().'.'.$this->faker->fileExtension(),
             'path' => $this->faker->name(),
             'uploaded_by' => $userId,
             'fileable_id' => $this->faker->uuid(),
@@ -29,7 +28,7 @@ class FileFactory extends Factory
      * Define the `fileable` polymorphic relationship.
      * This state allows setting an arbitrary model as the `fileable`.
      *
-     * @param \Illuminate\Database\Eloquent\Model|object $fileable
+     * @param  \Illuminate\Database\Eloquent\Model|object  $fileable
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
     public function fileable($fileable)
@@ -42,4 +41,3 @@ class FileFactory extends Factory
         });
     }
 }
-

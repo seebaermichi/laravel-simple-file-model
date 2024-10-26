@@ -13,7 +13,7 @@ class SimpleFileServiceProvider extends PackageServiceProvider
         parent::register();
 
         $this->app->singleton(FileService::class, function ($app) {
-            return new FileService();
+            return new FileService;
         });
     }
 

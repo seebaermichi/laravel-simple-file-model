@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use MichaelBecker\SimpleFile\Models\File;
 use MichaelBecker\SimpleFile\Tests\TestModel;
 

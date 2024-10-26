@@ -32,7 +32,7 @@ trait HasFiles
 
     public function getDisk()
     {
-        return !defined(static::class . '::DISK') ? 'public' : self::DISK;
+        return ! defined(static::class.'::DISK') ? 'public' : self::DISK;
     }
 
     public function files(): MorphMany
@@ -52,19 +52,19 @@ trait HasFiles
 
     public function getPdfFiles()
     {
-        if (!$this->hasFiles()) {
+        if (! $this->hasFiles()) {
             return collect();
         }
 
-        return $this->files->filter(fn($file) => Str::contains(Str::lower($file->name), '.pdf'));
+        return $this->files->filter(fn ($file) => Str::contains(Str::lower($file->name), '.pdf'));
     }
 
     public function getImages()
     {
-        if (!$this->hasFiles()) {
+        if (! $this->hasFiles()) {
             return collect();
         }
 
-        return $this->files->filter(fn($file) => in_array(pathinfo($file->name, PATHINFO_EXTENSION), config('simple-file-model.image_extensions')));
+        return $this->files->filter(fn ($file) => in_array(pathinfo($file->name, PATHINFO_EXTENSION), config('simple-file-model.image_extensions')));
     }
 }

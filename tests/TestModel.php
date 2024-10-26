@@ -13,7 +13,9 @@ class TestModel extends Model
     use HasFactory, HasFiles, HasUuids, SoftDeletes;
 
     protected $table = 'test_models';
+
     protected $guarded = [];
+
     const DISK = 'public';
 
     protected static function newFactory()

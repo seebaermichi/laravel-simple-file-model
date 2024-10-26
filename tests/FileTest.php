@@ -5,19 +5,19 @@ use MichaelBecker\SimpleFile\Models\File;
 use MichaelBecker\SimpleFile\Tests\TestModel;
 
 it('can return full path of file', function () {
-    $fileName = 'test.' . config('simple-file-model.image_extensions')[0];
+    $fileName = 'test.'.config('simple-file-model.image_extensions')[0];
 
     $fileModel = File::factory()->create([
         'name' => $fileName,
         'path' => 'folder',
     ]);
 
-    expect($fileModel->getFullPath())->toBe('folder/' . $fileName);
+    expect($fileModel->getFullPath())->toBe('folder/'.$fileName);
 });
 
 it('can check if a file is an image by file extension', function () {
     $fileModel = File::factory()->create([
-        'name' => 'test.' . config('simple-file-model.image_extensions')[0],
+        'name' => 'test.'.config('simple-file-model.image_extensions')[0],
     ]);
 
     expect($fileModel->isImage())->toBe(true);
@@ -72,8 +72,6 @@ it('soft deletes associated files when the model is soft deleted', function () {
     // Verify the physical file still exists on disk
     Storage::disk('public')->assertExists($file->getFullPath());
 });
-
-
 
 it('deletes associated files when the model is deleted', function () {
     Storage::fake('public');

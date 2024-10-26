@@ -50,7 +50,7 @@ class File extends Model
 
     public function getFullPath(): string
     {
-        return $this->path . '/' . $this->name;
+        return $this->path.'/'.$this->name;
     }
 
     public function isPdf(): bool

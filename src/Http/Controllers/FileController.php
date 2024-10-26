@@ -23,7 +23,7 @@ class FileController
         $contentDisposition = $file->isPreviewable() ? 'inline' : 'attachment';
 
         return response()->file($storagePath, [
-            'Content-Disposition' => $contentDisposition . '; filename="' . basename($file->name) . '"',
+            'Content-Disposition' => $contentDisposition.'; filename="'.basename($file->name).'"',
             'Content-Type' => mime_content_type($storagePath),
         ]);
     }
