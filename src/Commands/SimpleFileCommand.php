@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace MichaelBecker\SimpleFile\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class SimpleFileCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-simple-file-model';
 
     public $description = 'My command';
 
