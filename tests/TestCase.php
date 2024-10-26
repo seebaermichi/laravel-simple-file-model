@@ -2,13 +2,9 @@
 
 namespace MichaelBecker\SimpleFile\Tests;
 
-use App\Models\Traits\HasFiles;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Artisan;
 use Orchestra\Testbench\TestCase as Orchestra;
 use MichaelBecker\SimpleFile\SimpleFileServiceProvider;
-use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
