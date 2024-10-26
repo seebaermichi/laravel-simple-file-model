@@ -27,10 +27,6 @@ class FileService
             throw new \Exception("The provided model does not implement the required getDisk method.");
         }
         $disk = $model->getDisk() ?? 'public';
-
-        if (! property_exists($model, 'id')) {
-            throw new \Exception("The provided model does not have an id property.");
-        }
         $path = $path ?? $model->id ?? '';
 
         $files = [];
@@ -47,6 +43,7 @@ class FileService
                         'path' => $path,
                         'name' => $newFile->getClientOriginalName(),
                         'uploaded_by' => auth()->id(),
+                        // @phpstan-ignore-next-line
                         'fileable_id' => $model->id,
                         'fileable_type' => get_class($model),
                     ])->id;
