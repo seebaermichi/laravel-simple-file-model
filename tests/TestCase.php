@@ -2,7 +2,11 @@
 
 namespace MichaelBecker\SimpleFile\Tests;
 
+use App\Models\Traits\HasFiles;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Artisan;
+use Orchestra\Testbench\TestCase as Orchestra;
 use MichaelBecker\SimpleFile\SimpleFileServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -28,9 +32,11 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-simple-file-model_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_files_table.php.stub';
         $migration->up();
-        */
+
+        $migration = include __DIR__.'/../database/migrations/create_test_models_table.php';
+        $migration->up();
+
     }
 }

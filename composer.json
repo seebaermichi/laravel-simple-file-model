@@ -75,7 +75,7 @@
                 "MichaelBecker\\SimpleFile\\SimpleFileServiceProvider"
             ],
             "aliases": {
-                "SimpleFile": "MichaelBecker\\SimpleFile\\Facades\\SimpleFile"
+                "SimpleFile": "File"
             }
         }
     },

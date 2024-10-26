@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \MichaelBecker\SimpleFile\SimpleFile
  */
-class SimpleFile extends Facade
+class File extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
