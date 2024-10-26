@@ -2,9 +2,9 @@
 
 namespace MichaelBecker\SimpleFile;
 
+use MichaelBecker\SimpleFile\Commands\SimpleFileCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use MichaelBecker\SimpleFile\Commands\SimpleFileCommand;
 
 class SimpleFileServiceProvider extends PackageServiceProvider
 {
